@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2a3e5a8540.js" crossorigin="anonymous"></script>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: #011f6c;
+            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: -100px;
+            z-index: 50;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.3rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-left: 10px;
+            
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ff9900;
+        }
+
+        .hero {
+    background: linear-gradient(1deg, #ffffff, #fdac3a);
+    height: 100%;
+    background-size: cover;
+    padding: 180px 50px; /* Reduce padding to move everything up */
+    text-align: center;
+    color: #020d70;
+}
+
+        .hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 0; /* Reduce margin to move the text upwards */
+}
+
+
+        .hero p {
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 100px;
+            padding: 10px 40px;
+            background: #ff5e01;
+            color: #ffffff;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #fff;
+            color: #f68464;
+            border: 2px solid #020d70;
+        }
+
+        .section {
+            padding: 50px 20px;
+            text-align: center;
+  
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 50px;
+        }
+
+        .about-section, .services {
+            background: #ffffff;
+            margin: 20px auto;
+            padding: 30px 20px;
+            box-shadow: 0 4px 8px #020d70;
+            border-radius: 10px;
+            max-width: 1100px;
+        }
+
+        .service-cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            background: #ff5e01;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 300px;
+            text-align: center;
+            color: #000;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 15px rgba(213, 29, 29, 0.2);
+        }
+
+        .projects .project-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .project-item {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            max-width: 300px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .project-item img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .project-item:hover {
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact form {
+            max-width: 500px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact input, .contact textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact button {
+            padding: 10px;
+            background: #ff5e01;
+            border: none;
+            color: #fffcfc;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .contact button:hover {
+            background: #020d70;
+        }
+
+        footer {
+            background: #020d70;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+
+        .project-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Space between cards */
+  padding: 20px;
+}
+
+.project-card {
+  background-color: rgba(255, 255, 255, 0.5); /* Transparent white background */
+  border: 2px solid rgba(169, 169, 169, 0.7); /* Light gray border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+  height: 400px; /* Adjust this for how long you want the card */
+  width: 30%; /* Ensures that 3 cards fit in a row */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: blur(10px); /* Optional: adds a blur effect to the background behind the card */
+}
+.project-section {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  width: 30%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  margin: 10px;
+}
+
+.project-img {
+  width: 100%;
+  height: 200px; /* Set a fixed height for uniformity */
+  object-fit: cover; /* Ensures the image covers the box without stretching */
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.card-footer {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #007BFF;
+  cursor: pointer;
+}
+
+.card-footer:hover {
+  text-decoration: underline;
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.project-card p {
+  font-size: 1rem;
+  flex-grow: 1;
+}
+
+.project-card .card-footer {
+  font-size: 0.9rem;
+  color: #a47739; /* Optional: contrasting footer color */
+}
+
+/* About Me Section */
+.about-me {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+  padding: 40px;
+  overflow: hidden;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* Container for Photo and Text */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns for photo and text */
+  gap: 40px;
+  max-width: 1200px;
+  width: 100%;
+  justify-items: center;
+  align-items: center;
+}
+
+/* Photo Container */
+.photo-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.photo {
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transform: translateX(100%); /* Start off to the right */
+  animation: photoMove 2s forwards;
+}
+
+/* About Text Styling */
+.about-text {
+  opacity: 0;
+  transform: translateX(100%); /* Start off to the right */
+  animation: textSlide 2s forwards;
+  animation-delay: 2s; /* Delay text appearance after photo */
+  max-width: 500px;
+  text-align: left;
+}
+
+/* About Me Heading */
+.about-heading {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+  position: relative;
+  z-index: 1; /* Ensure it stays above other elements */
+}
+
+/* Education Section Styling */
+.education {
+  margin-top: 40px;
+}
+
+.education-heading {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Education Cards */
+.education-card {
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.education-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Title of the Education Card */
+.edu-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #fdac3a;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #f4f4f4;
+  border-radius: 6px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Arrow icon */
+.arrow {
+  font-size: 1.5rem;
+  color: #fdac3a;
+  transition: transform 0.3s ease;
+}
+
+/* Hidden Education Details */
+.edu-details {
+  display: none;
+  padding-top: 10px;
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Show details when the title is clicked */
+.education-card.active .edu-details {
+  display: block;
+}
+
+/* Rotate arrow when active */
+.education-card.active .arrow {
+  transform: rotate(180deg);
+}
+
+/* Keyframes for Animation */
+@keyframes photoMove {
+  0% {
+    opacity: 0;
+    transform: translateX(100%); /* Offscreen to the right */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); /* Moves to the left column */
+  }
+}
+
+@keyframes textSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(100%); /* Start from the right column */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); /* Slides into the right column */
+  }
+}
+
+.about-me {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('data:image/svg+xml,%3Csvg width="100%" height="100%" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath fill="%23ff5e01" d="M0,0 C100,100 400,100 500,0 C400,200 100,200 0,500 Z"%3E%3C/path%3E%3C/svg%3E');
+  background-size: cover;
+  padding: 40px;
+  overflow: hidden;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* Fade-in Animation */
+.hero {
+    opacity: 0;
+    animation: fadeIn 2s forwards; /* Adjust the timing as needed */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.hero h1, .hero p, .cta-button {
+    opacity: 0;
+    animation: fadeInText 2s ease-out forwards;
+    animation-delay: 0.5s; /* Delay for text */
+}
+
+@keyframes fadeInText {
+    to {
+        opacity: 1;
+    }
+}
+
+.hero span {
+    color: #ff5e01; /* Different color for span */
+    font-weight: bold;
+    animation: slideUp 1s ease-out forwards;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+.hero span {
+    color: #ff5e01; /* Example color, change to your desired color */
+    font-weight: bold; /* Optional: You can make it bold if you want */
+}
+
+
+    </style>
+</head>
+<body>
+   <header>
+       <nav>
+           <div class="logo">SHRAVANI RANE</div>
+           <ul class="nav-links">
+               <li><a href="#">Home</a></li>
+               <li><a href="#about">About</a></li>
+               <li><a href="#skills">Skills</a></li>
+               <li><a href="#project">Projects</a></li>
+               <li><a href="#contact">Contact</a></li>
+           </ul>
+       </nav>
+   </header>
+
+   <section class="hero">
+       <h1>Welcome!<br> I'm 
+        <span>SHRAVANI RANE</span></h1>
+       <p>Java Developer | Web Enthusiast</p>
+       <a href="#contact" class="cta-button">Contact Me</a>
+   </section>
+   
+   <section class="about-me">
+    <div class="container">
+      <div class="photo-container">
+        <img src="abt.png" alt="Your Photo" class="photo">
+      </div>
+      <div class="about-text">
+        <h2 class="about-heading">About Me</h2>
+        <p>I'm a passionate developer with expertise in Java development, Spring Boot and Frontend Developement. I love solving complex problems and building innovative solutions!</p>
+        
+        <!-- Education Section -->
+        <div class="education">
+          <h3 class="education-heading"></h3>
+          <div class="education-card">
+            <div class="edu-title">
+              <span>Bachelor's in Computer Engineering</span>
+              <span class="arrow">↓</span>
+            </div>
+            <div class="edu-details">
+              <p>PCET Nutan Maharashtra Institute of Engineeringand Technology, Pune</p>
+              <p>2021- 2025 [Current CGPA : 8.05]</p>
+            </div>
+          </div>
+          <div class="education-card">
+            <div class="edu-title">
+              <span>Junior College</span>
+              <span class="arrow">↓</span>
+            </div>
+            <div class="edu-details">
+              <p>Jai Hind High School & Junior Collegr, Pune</p>
+              <p>Completed Junior College in Science with 88.83% , Maharashtra HSC Board, passed in 2021.</p>
+            </div>
+            </div>
+            <div class="education-card">
+              <div class="edu-title">
+                <span>School</span>
+                <span class="arrow">↓</span>
+              </div>
+              <div class="edu-details">
+                <p>Vidya Niketan English Medium School, Pune</p>
+                <p>Completed school with 87.06% , Maharashtra SSC Board, passed in 2018.</p>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  
+  
+  
+
+   <section id="Skills" class="section services">
+       <h2>Skills</h2>
+       <div class="service-cards">
+           <div class="card">
+               <h3>Java Development</h3>
+               <p>Building scalable backend systems using Spring Boot.</p>
+           </div>
+           <div class="card">
+               <h3>Web Development</h3>
+               <p>Creating responsive, dynamic websites.</p>
+           </div>
+           <div class="card">
+               <h3>Front-end Development</h3>
+               <p>Seamless interfaces using React and JavaScript.</p>
+           </div>
+       </div>
+   </section>
+
+   <section class="project-section">
+    <div class="project-card">
+      <img src="p1.jpg" alt="ELECTRONIC STORE" class="project-img">
+      <h3>ELECTRONIC STORE</h3>
+      <p>It is a backend system for managing an online electronics store, developed as part of a backend course.</p>
+      <div class="card-footer">
+        <a href="https://github.com/srane1903/Electronic_Store" target="_blank">Learn More</a>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="p2.jpg" alt="PERSONAL PORTFOLIO" class="project-img">
+      <h3>PERSONAL PORTFOLIO</h3>
+      <p>Developed a dynamic and visually engaging personal portfolio website to showcase my professional skills, projects, and achievements</p>
+      <div class="card-footer">
+        <a href="https://github.com/yourusername/personal-portfolio" target="_blank">Learn More</a>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="p3.png" alt="AMAZON CLONE" class="project-img">
+      <h3>AMAZON CLONE</h3>
+      <p>This is a static front-end application designed to mimic Amazon's user interface.</p>
+      <div class="card-footer">
+        <a href="https://github.com/srane1903/Edunet_FED_Project" target="_blank">Learn More</a>
+      </div>
+    </div>
+  </section>
+  
+
+  
+  <section id="contact" class="section contact">
+    <h2>Contact Me</h2>
+    <form action="https://formspree.io/f/xdkorjbn" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+    </form>
+</section>
+
+ 
+
+   <footer>
+       &copy; 2024 Shravani Rane. All rights reserved.
+   </footer>
+<script>
+  // Add interactivity for the education card to expand/collapse
+document.querySelectorAll('.edu-title').forEach(card => {
+  card.addEventListener('click', () => {
+    card.parentElement.classList.toggle('active');
+  });
+});
+
+</script>
+</body>
+</html>
